@@ -1,0 +1,101 @@
+*auto_source.txt*	|:source| the updated scripts automatically.
+
+Version: 1.0
+Author : thinca <thinca+vim@gmail.com>
+License: zlib License
+
+==============================================================================
+CONTENTS					*auto_source-contents*
+
+INTRODUCTION			|auto_source-introduction|
+INTERFACE			|auto_source-interface|
+  COMMANDS			  |auto_source-commands|
+  FUNCTIONS			  |auto_source-functions|
+CUSTOMIZING			|auto_source-customizing|
+CHANGELOG			|auto_source-changelog|
+
+
+==============================================================================
+INTRODUCTION					*auto_source-introduction*
+
+*auto_source* is a Vim plugin to sourcing automatically when the specified
+file is updated.
+Change is checked by |CursorHold| event in fact.
+
+NOTE: All the script is not necessarily possible for two or more times of
+      |:source|.  Be careful.
+
+
+Requirements:
+- Vim 7.3 or later
+
+Latest version:
+https://github.com/thinca/vim-auto_source
+
+
+
+==============================================================================
+INTERFACE					*auto_source-interface*
+
+------------------------------------------------------------------------------
+COMMANDS					*auto_source-commands*
+
+:AutoSource					*:AutoSource*
+	Shows the registered files.
+:AutoSource!					*:AutoSource!*
+	Force check and |:source| the updated scripts.
+:AutoSource {file} ...				*:AutoSource_f*
+	Registers the {file}.
+:AutoSource! {file} ...				*:AutoSource!_f*
+	Unregisters the {file}.
+
+
+------------------------------------------------------------------------------
+FUNCTIONS					*auto_source-functions*
+
+auto_source#register({file})			*auto_source#register()*
+	Registers the {file}.
+	Returns 1 if the operation was successful.  Otherwise returns 0.
+
+auto_source#unregister({file})			*auto_source#unregister()*
+	Unregisters the {file}.
+	Returns 1 if the operation was successful.  Otherwise returns 0.
+
+auto_source#list()				*auto_source#list()*
+	Returns the list of registered files.
+
+auto_source#source([{silent}])			*auto_source#source()*
+	Executes |:source| of updated scripts.
+
+
+
+==============================================================================
+CUSTOMIZING					*auto_source-customizing*
+
+g:auto_source#include				*g:auto_source#include*
+g:auto_source#exclude				*g:auto_source#exclude*
+	The pattern of a file name(fullpath) to include/exclude.  These
+	pattern is not used if it is empty.
+	List of patterns can also be used.
+	Both of a default value are empty string.
+
+g:auto_source#silent				*g:auto_source#silent*
+	Don't report the auto sourced file.
+	The default value is 0.
+
+g:auto_source#unlet_loaded			*g:auto_source#unlet_loaded*
+	When a file name matches "/plugin/", unlet the "g:loaded_xxx" variable
+	before execute |:source|.
+	The default value is 1.
+
+
+
+==============================================================================
+CHANGELOG					*auto_source-changelog*
+
+1.0	2011-10-14
+	- Initial version.
+
+
+==============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
