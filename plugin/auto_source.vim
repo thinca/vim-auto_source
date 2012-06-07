@@ -17,7 +17,8 @@ command! -bang -bar -nargs=* -complete=file
 augroup plugin-auto_source
   autocmd!
   autocmd SourcePre * call auto_source#register(expand('<afile>'), 1)
-  autocmd CursorHold * nested call auto_source#source(g:auto_source#silent)
+  autocmd CursorHold,FocusGained * nested
+  \       call auto_source#source(g:auto_source#silent)
 augroup END
 
 function! s:register()

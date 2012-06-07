@@ -20,7 +20,7 @@ INTRODUCTION					*auto_source-introduction*
 
 *auto_source* is a Vim plugin to sourcing automatically when the specified
 file is updated.
-Change is checked by |CursorHold| event in fact.
+Change is checked by |CursorHold| and |FocusGained| event in fact.
 
 NOTE: All the script is not necessarily possible for two or more times of
       |:source|.  Be careful.
