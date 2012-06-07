@@ -1,6 +1,6 @@
 *auto_source.txt*	|:source| the updated scripts automatically.
 
-Version: 1.0
+Version: 1.1
 Author : thinca <thinca+vim@gmail.com>
 License: zlib License
 
@@ -92,6 +92,9 @@ g:auto_source#unlet_loaded			*g:auto_source#unlet_loaded*
 
 ==============================================================================
 CHANGELOG					*auto_source-changelog*
+
+1.1	2012-06-07
+	- Changed to check for |FocusGained|.
 
 1.0	2011-10-14
 	- Initial version.
